@@ -1,0 +1,3 @@
+
+set(USE_FEATURE_TEST3 ON)
+add_definitions(-DUSE_FEATURE_TEST3)
