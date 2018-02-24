@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
 project(example C)
 
+if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
+   message(FATAL_ERROR "Builds in sources are not allowed.")
+endif()
+set(CMAKE_DISABLE_SOURCE_CHANGES ON)
+
 set(CMAKE_C_COMPILER /usr/bin/gcc-6)
 set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS -lpthread)
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,-Map=${PROJECT_NAME}.map -lm")
